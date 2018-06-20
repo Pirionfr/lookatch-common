@@ -2,7 +2,8 @@ package control
 
 import (
 	"encoding/json"
-	log "github.com/spf13/jwalterweatherman"
+	log "github.com/sirupsen/logrus"
+	"github.com/juju/errors"
 )
 
 // Agent Available Actions
@@ -62,7 +63,9 @@ func (a *Agent) NewMessage(tenantToken string, uuid string, action string) *Agen
 func (a *Agent) WithPayload(i interface{}) *Agent {
 	b, err := json.Marshal(i)
 	if err != nil {
-		log.FATAL.Println(err)
+		log.WithFields(log.Fields{
+			"error": errors.ErrorStack(err),
+		}).Fatal("Error running agent")
 		return nil
 	}
 	a.Payload = b
