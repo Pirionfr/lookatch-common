@@ -13,13 +13,11 @@ func decodeSinkMessage(message rpc.Message) *Sink {
 
 	switch message.Type {
 	case TypeAgent:
-		break
 	case TypeSink:
 		c := &Sink{}
 		json.Unmarshal(message.Payload, c)
 		fmt.Println(c.GetAction())
 		return c
-		break
 	case TypeSource:
 		break
 	}
@@ -39,7 +37,6 @@ func decodeSourceMessage(message rpc.Message) *Source {
 		json.Unmarshal(message.Payload, c)
 		fmt.Println(c.GetAction())
 		return c
-		break
 	}
 	return nil
 }

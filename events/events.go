@@ -29,7 +29,7 @@ type (
 		Environment string `json:"Environment"`
 		Timestamp   string `json:"Timestamp"`
 		AgentId     string `json:"AgentId"`
-		Value       string `json:"value"`
+		Value       interface{} `json:"value"`
 	}
 
 	/**

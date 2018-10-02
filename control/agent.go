@@ -2,8 +2,8 @@ package control
 
 import (
 	"encoding/json"
-	log "github.com/sirupsen/logrus"
 	"github.com/juju/errors"
+	log "github.com/sirupsen/logrus"
 )
 
 // Agent Available Actions
